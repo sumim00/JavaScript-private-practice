@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <title>채식주의자</title>
+        <autor>한강</autor>
+        <price>12000</price>
+    </book>
+    <book>
+        <title>종의 기원</title>
+        <autor>정유정</autor>
+        <price>10000</price>
+    </book>
+    <book>
+        <title>저녁의 구애</title>
+        <autor>편혜영</autor>
+        <price>13000</price>
+    </book>
+</books>

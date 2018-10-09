@@ -1,0 +1,73 @@
+// calendar 함수
+function calendar(new_year, new_month){
+
+    // 특정 연월을 시작일부터 조회 (year, month, date)
+    var d = new Date(new_year, new_month-1, 1),
+        // 월별 일수 구하기 (?????)
+        d_length = 32 - new Date(new_year, new_month, 32).getDate(),
+        year = d.getFullYear(),
+        month = d.getMonth(),
+        date = d.getDate(),
+        day = d.getDay();
+    // document.write (d_length);
+    
+    //caption 영역 날짜 표시 객체
+    var caption_year = document.querySelector('.year'),
+        caption_month = document.querySelector('.month');
+        
+    var start_day = document.querySelectorAll('tr td');
+    
+    // 테이블 초기화
+    for(var i = 0; i < start_day.length; i++){
+        start_day[i].innerHTML = "&nbsp;";
+    }
+    
+    // 한 달 치 날짜를 테이블에 시작 요일부터 순서대로 표시
+    for(var i = day; i < day + d_length; i++){
+        start_day[i].innerHTML = date;
+        date++;
+    }
+    
+    //caption 날짜 표시
+    caption_year.innerHTML = year;
+    caption_month.innerHTML = month + 1;
+
+}; // end calendar()
+
+(function(){
+
+    var prev = document.getElementById('prev'),
+        next = document.getElementById('next'),
+        year = new Date().getFullYear(),
+        month = new Date().getMonth() + 1;
+    
+    calendar(year, month);
+
+    // 이전 달, 다음 달 버튼 이벤트 핸들러
+    prev.onclick = function(){
+        calendar(year, --month);
+    };
+    next.onclick = function(){
+        calendar(year, ++month);
+    };
+
+})();
+
+// 익명 함수를 즉시 실행
+// (function(){
+//     // 처리 내용;
+// })();
+
+function age(){
+
+    var year = document.getElementById('age').value,
+        now_year = new Date().getFullYear(),
+        age = now_year - year + 1;
+
+    if (year == "" || year == null || year == undefined || isNaN(year)){
+        alert('년도를 입력해주세요.');
+    } else {
+        alert('당신의 나이는' + age);
+    }
+    
+}
