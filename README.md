@@ -18,8 +18,7 @@
 
 > 오픈 API인 구글 맵을 활용하여 지도 만들기
 >
-> 작업 파일 : map.html
-> 참고 사이트 : [GOOGLE Maps Platform](https://developers.google.com/maps/documentation/javascript/tutorial)
+> 작업 파일 : map.html 참고 사이트 :  [GOOGLE Maps Platform](https://developers.google.com/maps/documentation/javascript/tutorial)
 
 
 
