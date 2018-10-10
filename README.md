@@ -22,6 +22,16 @@
 
 
 
+## p3. 날씨 위젯
+
+> openweather API 를 이용하여 위젯 형태의 어플리케이션 구현
+>
+> 작업 파일 : weather.html
+>
+> 참고 : [openweather](https://openweathermap.org/current)
+
+
+
 ## 새로 알게 된 개념
 
 ##### 오픈 API 
