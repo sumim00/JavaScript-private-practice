@@ -9,21 +9,63 @@
 <body>
     <script>
         // 함수 선언에서 객체 선언으로 변경
-        function my_caractor(name, job){
-            document.write('내 이름은 ' + name + '이고, 직업은 ' + job + '입니다.<br>')
-        }
-        var charactor = [
-            {
-                name: '감자',
-                job: '성기사'
-            },
-            {
-                name: '애호박',
-                job: '전사'
-            }
-        ]
-        my_caractor(charactor[0].name, charactor[0].job);
-        my_caractor(charactor[1].name, charactor[1].job);
+        // function my_caractor(name, job){
+        //     document.write('내 이름은 ' + name + '이고, 직업은 ' + job + '입니다.<br>')
+        // }
+        // var charactor = [
+        //     {
+        //         name: '감자',
+        //         job: '성기사'
+        //     },
+        //     {
+        //         name: '애호박',
+        //         job: '전사'
+        //     }
+        // ]
+        // my_caractor(charactor[0].name, charactor[0].job);
+        // my_caractor(charactor[1].name, charactor[1].job);
+
+        // 객체에 특징 부여하기
+        // var charactor = {
+        //     name: '감자',
+        //     job: '탱커',
+        //     move: function(){
+        //         document.write(this.name + ' ' + this.job + ' 캐릭터 이동<br>');
+        //     },
+        //     stop: function(){
+        //         document.write(this.name + ' ' + this.job + ' 캐릭터 정지<br>');
+        //     }
+        // }// 이 때 name, job이 charactor의 속성, move, stop이 메서드
+        // charactor.move();
+        // charactor.stop();
+
+        // 생성자 함수로 인스턴스 객체 생성
+        // function Charactor(name, job){ // 일반 함수와 구분할 수 있도록 첫 글자 대문자 표기
+        //     this.name = name; // 전달받는 속성값이 고정된 값이 아니기 때문에 this 객체로 받음
+        //     this.job = job;
+        //     this.move = function(){
+        //         document.write(this.name + ' ' + this.job + ' 캐릭터 이동<br>');
+        //     }
+        //     this.stop = function(){
+        //         document.write(this.name + ' ' + this.job + ' 캐릭터 정지<br>');
+        //     }
+        // }
+        // var char1 = new Charactor('홍시', '궁수'); // 인스턴스 객체 생성
+        // var char2 = new Charactor('규울', '마법사');
+
+        // char1.move();
+        // char2.stop();
+
+        // 메서드 프로토타입으로 생성하기
+        function Charactor(name, job){
+            this.name = name;
+            this.job = job;
+        };
+        Charactor.prototype.move = function(){
+            document.write(this.name + ' ' + this.job + ' 캐릭터 이동<br>');
+        };
+        var char1 = new Charactor('대홍단감자','전사');
+        char1.move();
     </script>
 </body>
 </html>
