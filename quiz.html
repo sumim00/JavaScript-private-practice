@@ -124,8 +124,54 @@
             var per = parseInt((quiz.score*100) / quiz.questions.length);
 
             // 표시할 텍스트 정보와 변수
-            var txt = '<h1>결과</h1>'
+            var txt = '<h1>결과</h1>' + '<h2 id="score"> 당신의 점수: ' + quiz.score + '/' + quiz.questions.length + per + '점</h2>'
+
+            quiz_div.innerHTML = txt // 결과 텍스트 출력
+
+            // 점수별 결과 텍스트 출력
+            if(per < 60){
+                txt += '<h2 style="color:red">더 분발하세요</h2>';
+                quiz_div.innerHTML = txt;
+            } else if(per >=60 && per < 80){
+                txt += '<h2 style="color:red">무난한 점수네요</h2>';
+                quiz_div.innerHTML = txt;
+            } else if(per >= 80){
+                txt += '<h2 style="color:red">훌륭합니다</h2>';
+                quiz_div.innerHTML = txt;
+            }
         }
+
+            var btn = document.querySelectorAll('.btn')
+            // 입력 및 정답 확인 함수
+            function checkAnswer(i){
+                // 선택 버튼(.btn) 이벤트 리스너
+                btn[i].addEventListener('click', function(){
+                    var answer = btn[i].innerText;
+
+                    if(quiz.correctAnswer(answer)){
+                        alert('정답입니다!')
+                        quiz.score++;
+                    } else {
+                        alert('틀렸습니다')
+                    }
+
+                    // 다음 문제로 진행 및 결과 처리
+                    if(quiz.questionIndex < quiz.questions.length-1){
+                        quiz.questionIndex++;
+                        update_quiz();
+                    } else {
+                        // 결과 화면
+                        result();
+                    }
+                })
+            }
+
+            // 4개의 버튼 이벤트 리스너 지정
+            for(var i = 0; i < btn.length; i++){
+                checkAnswer(i);
+            }
+            
+            update_quiz();
 
     </script>
 </body>
