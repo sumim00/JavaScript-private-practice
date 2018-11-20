@@ -21,7 +21,7 @@
 <body>
     <div class="wrap">
         <h2 class="title">유효성 검사</h2>
-        <form action="" method="post" onsubmit="return validate();">
+        <form action="" method="post" name="join" onsubmit="return validate();">
             <table class="table">
                 <colgroup>
                     <col style="width:20%"/>
@@ -56,5 +56,19 @@
             </table>
         </form>
     </div>
+    <script type="text/javascript">
+        function validate(){
+            var re = /^[a-z/A-Z/0-9]{4,12}$
+            //아이디와 패스워드가 적합한지 검사하는 정규식
+            var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?0-9a-zA-Z)*.[a-zA-Z]{2,3}$/i;
+            
+            // 이메일이 적합한지 검사하는 정규식
+            var userId = document.getElementById('userId')
+            var userPwd = document.getElementById('userPwd')
+            var userPwd02 = document.getElementById('userPwd02')
+            var userName = document.getElementById('userName')
+            var userEmail = document.getElementById('userEmail')
+        }
+    </script>
 </body>
 </html>
