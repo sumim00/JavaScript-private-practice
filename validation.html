@@ -21,6 +21,7 @@
 <body>
     <div class="wrap">
         <h2 class="title">유효성 검사</h2>
+        <p>참고 : http://victorydntmd.tistory.com/81</p>
         <form action="" method="post" name="join" onsubmit="return validate();">
             <table class="table">
                 <colgroup>
@@ -58,16 +59,29 @@
     </div>
     <script type="text/javascript">
         function validate(){
-            var re = /^[a-z/A-Z/0-9]{4,12}$
-            //아이디와 패스워드가 적합한지 검사하는 정규식
-            var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?0-9a-zA-Z)*.[a-zA-Z]{2,3}$/i;
             
+            var regx = /^[\w]{3,15}$/ //영문대소문자, 숫자, 3-15자리
+            // var regx2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?0-9a-zA-Z)*.[a-zA-Z]{2,3}$/i;
+            var regx2 = regx = /[^\w~@\#$%<>^&*\()\-=+_\']/; //영문대소문자, 숫자, 특수기호, 8-16자리
+
             // 이메일이 적합한지 검사하는 정규식
+
             var userId = document.getElementById('userId')
             var userPwd = document.getElementById('userPwd')
             var userPwd02 = document.getElementById('userPwd02')
             var userName = document.getElementById('userName')
             var userEmail = document.getElementById('userEmail')
+
+            console.log(userId)
+
+            if(!regx.test(userId.value)){
+                alert('아이디를 입력하세요')
+                userId.value = ""
+                userId.focus()
+                return false
+            } 
+            //유효하면 true 반환
+
         }
     </script>
 </body>
